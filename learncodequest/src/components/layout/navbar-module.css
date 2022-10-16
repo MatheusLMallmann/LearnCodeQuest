@@ -1,0 +1,40 @@
+@import url(https://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+
+.header {
+    width: auto;
+    height: 4rem;
+    background-color: #0E2A47;
+    font-family: 'Open Sans Hebrew', serif;
+    display: flex;
+    align-items: center;
+    border-bottom-style: 2px solid red;    
+}
+
+.header p {
+    padding-left: 7%;
+}
+
+.header div {
+    display: flex;
+    align-items: center;
+    align-content: right;
+    float: right;
+    width: 30%;
+    padding-left: 60%;
+}
+
+.header-entrar {
+    padding: 2% 10% 2% 10%;
+    background: #31B5FF;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.register-buttons p {
+    font-weight: bolder;
+    padding-right: 3%;
+    font-size: 20px;
+    color: #48FFD5;
+}
