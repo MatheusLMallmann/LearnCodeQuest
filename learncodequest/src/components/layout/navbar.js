@@ -1,15 +1,23 @@
 import './Navbar-module.css';
+import React, {useState} from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Navbar(){
     return (        
-        <div className="header">              
-            <p className = "header-font">logo</p>
+        <nav className="header">   
+                       
+                <p className = "header-font">logo</p>
 
-            <div className="register-buttons">
-                <button className="header-criar-conta">Criar conta</button>
-                <button className="header-entrar">Entrar</button> 
-            </div>           
-        </div> 
+                <div className="register-buttons">
+                    <NavLink to = "/Register" >
+                       <button className="header-criar-conta">Register</button> 
+                    </NavLink>
+                    <NavLink to = "/Login" >
+                       <button className="header-entrar">Entrar</button> 
+                    </NavLink>
+                </div>
+             
+        </nav> 
     );
 }
 

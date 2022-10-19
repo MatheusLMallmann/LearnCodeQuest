@@ -1,8 +1,8 @@
 
 function Register(){
     return (
-        <div>
-            <h1>Register</h1>
+        <div className="RegisterScreen">
+            <h1 className="font">Register</h1>
         </div>
     )
 }
