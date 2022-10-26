@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 
 function Home(){
 
+    const saibaMais = () =>{
+        //descer tela para detalhes sobre o app
+    }
+
     return (
         <div>
             <div className="homePage">

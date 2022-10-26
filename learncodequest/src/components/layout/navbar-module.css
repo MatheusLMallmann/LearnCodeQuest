@@ -27,6 +27,7 @@
 
 .header-font{
     color: #48FFD5;
+    margin-left: 50px;
 }
 
 .header-criar-conta {
@@ -47,5 +48,9 @@
     font-weight: bold;
     font-size: 20px;
     margin-left: 10px;
+}
+
+.botoesNav{
+    margin-left: 50px;
 }
 
