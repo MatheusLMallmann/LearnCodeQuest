@@ -1,8 +1,12 @@
+import './Login.module.css';
+import React from 'react';
+
+
 
 function Login(){
     return (
-        <div>
-            <h1>Login</h1>
+        <div className= "fundo" >
+            <p  className="loginTxt"> Username </p>
         </div>
     )
 }

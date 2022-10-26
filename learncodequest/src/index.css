@@ -1,13 +1,12 @@
-*{
+html{
+  background-color: #0E2A47;
+  box-shadow: inset 100px 100px 250px 100px rgba(0, 0, 0, 0.25); 
+  height: 100%;
+}
+
+body{
   padding: 0px;
   margin: 0px;
   font-family: 'Open Sans', sans-serif;
   
-}
-
-
-html, body, #root{
-  background-color: #0E2A47;
-  box-shadow: inset 100px 100px 250px 100px rgba(0, 0, 0, 0.25); 
-  height: 100%;
 }
