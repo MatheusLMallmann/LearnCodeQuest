@@ -1,6 +1,6 @@
-import './Footer-module.css'
+import './footerStyles.css'
 
-function Footer(){
+export const Footer = () =>{
     return(
         <div className="footer">
             <h1 className="footerTxt">Roda pé</h1>

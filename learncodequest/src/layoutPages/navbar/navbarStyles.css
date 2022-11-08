@@ -1,5 +1,12 @@
 @import url(https://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
 .header {
     margin: 1px auto;
     width: auto;
@@ -26,18 +33,11 @@
 }
 
 .header-font{
-    color: #48FFD5;
-    margin-left: 50px;
-}
-
-.header-criar-conta {
-    background-color: #0E2A47;
-    box-shadow: inset 100px 100px 250px 100px rgba(0, 0, 0, 0.25); 
-    color: #48FFD5;
-    font-weight: bold;
     font-size: 20px;
-    border: none;
-
+    color: #48FFD5;
+    line-height: 1.5;
+    text-decoration: none;
+    margin-left: 15px;
 }
 
 .header-entrar {
@@ -47,10 +47,21 @@
     border: none;
     font-weight: bold;
     font-size: 20px;
-    margin-left: 10px;
+    cursor: pointer;
+    width: 100px;
+    height: 35px;
+    margin-right: 15px;
+}
+.bttnCriarConta{
+    margin-left: 1450px;
+    color: #48FFD5;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    height: auto;
+    text-decoration: none;
 }
 
-.botoesNav{
-    margin-left: 50px;
-}
 

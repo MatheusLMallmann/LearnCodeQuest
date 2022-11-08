@@ -1,13 +1,10 @@
-import "./Home-module.css";
+import "./styles.css";
 import React from 'react';
 import imgTela from "../../img/banner-API.png"
 import { Link } from 'react-router-dom';
 
-function Home(){
 
-    const saibaMais = () =>{
-        //descer tela para detalhes sobre o app
-    }
+export const Home = () => {
 
     return (
         <div>
@@ -22,5 +19,3 @@ function Home(){
         </div>
     )
 }
-
-export default Home

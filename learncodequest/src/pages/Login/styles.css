@@ -5,34 +5,6 @@
     
 }
 
-.container{
-   
-    width: 100%;
-    margin: 0 auto; 
-    background: rgba(14, 42, 71, 0.7);
-}
-
-.container-login{
-    width: 100%;
-    min-height: 100vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 15px;
-
-}
-
-.wrap-login{
-    width: 390px;
-    background-color: #1B0E0E;
-    border-radius: 10px;
-
-    overflow: hidden;
-    padding: 77px 55px 33px 55px;
-}
-
 .login-form{
     width: 100%;
 }
