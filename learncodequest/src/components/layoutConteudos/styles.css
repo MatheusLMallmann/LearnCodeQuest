@@ -1,0 +1,28 @@
+.container{   
+    width: auto;
+    margin: 0 auto; 
+    background: none;
+    margin-bottom: 2%;
+    margin-left: 30%;
+    margin-top: 2%;
+    margin-right: 3%;
+}
+
+.container-content{
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -40%;
+    padding: 15px;
+
+}
+
+.wrap-content{
+    width: auto;
+    background-color: rgb(161, 161, 161);
+    border-radius: 10px;
+
+    overflow: hidden;
+    padding: 77px 55px 33px 55px;
+}

@@ -11,3 +11,5 @@ export const LayoutComponents = (props) => {
         </div>
     )
 }
+
+export default LayoutComponents

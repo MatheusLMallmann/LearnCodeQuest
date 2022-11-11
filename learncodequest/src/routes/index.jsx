@@ -19,7 +19,7 @@ export const AppRouter = () =>{
                 <Route path="/register" exact element={<Register/>}/>
                 <Route path="/seletor" exact element={<Seletor/>}/>
                 <Route path="/bootcamp" exact element={<Bootcamp/>}/>
-                <Route path="/desafios" exact element={<Desafios/>}/>
+                <Route path="/desafio" exact element={<Desafios/>}/>
             </Routes>
             <Footer/>
         </Router>
