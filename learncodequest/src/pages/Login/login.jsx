@@ -1,16 +1,34 @@
 import './styles.css';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LayoutComponents } from '../../components/layoutComponents';
-
+import useAuth from "../../hooks/useAuth";
 
 
 export const Login = () => {
-    
-    const[email, setEmail] = useState("")
 
-    const[password, setPassword] = useState("")
+    const { signin } = useAuth();
+    const navigate = useNavigate();
+  
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+
+    const handleLogin = () => {
+        if (!email | !password) {
+          setError("Preencha todos os campos");
+          return;
+        }
     
+        const res = signin(email, password);
+    
+        if (res) {
+          setError(res);
+          return;
+        }
+    
+        navigate("/");
+      };
     
     return (
         <LayoutComponents>
@@ -21,7 +39,7 @@ export const Login = () => {
                         className={email !== "" ? 'has-val input' : 'input'}
                         type='email'
                         value={email}
-                        onChange={e => setEmail(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value, setError(""))}
                     />
                     <span className='focus-input' data-placeholder='Email'></span>
                 </div>
@@ -30,13 +48,13 @@ export const Login = () => {
                         className={password !== "" ? 'has-val input' : 'input'}
                         type='password'
                         value={password}
-                        onChange={e => setPassword(e.target.value)}
+                        onChange={(e) => setPassword(e.target.value, setError(""))}
                     />
                     <span className='focus-input' data-placeholder='password'></span>
                 </div>
-
+                <div>{error}</div>
                 <div className='container-login-form-btn'>
-                    <button className='login-form-btn'>Login</button>
+                    <button className='login-form-btn' onClick={handleLogin}>Login</button>
                 </div>
 
                 <div className='text-center'>

@@ -1,14 +1,38 @@
 import { LayoutComponents } from '../../components/layoutComponents'
 import './styles.css'
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 export const Register = () => {
 
-    const[email, setEmail] = useState("")
-    const[password, setPassword] = useState("")
-    const[name, setName] = useState("")
-    const[lastName, setLastName] = useState("")
+    const[email, setEmail] = useState("");
+    const[password, setPassword] = useState("");
+    const[name, setName] = useState("");
+    const[lastName, setLastName] = useState("");
+    const[erro, setErro] = useState("");
+    const navigate = useNavigate();
+
+    const { signup } = useAuth();
+
+    const handleSignup  = () => {
+        if(!email | !name | !lastName | !password){
+            setErro('Preencha todos os campos');
+            return;
+        }
+
+        const res = signup(email, password);
+
+        if(res){
+            setErro(res);
+            return;
+        }
+
+        alert('Usuário cadastrado com sucesso');
+        navigate('/');
+    };
+
+
 
     return(
         <LayoutComponents>
@@ -20,7 +44,7 @@ export const Register = () => {
                         className={name !== "" ? 'has-val input' : 'input'}
                         type='string'
                         value={name}
-                        onChange={e => setName(e.target.value)}
+                        onChange={e => setName(e.target.value, setErro(''))}
                     />
                     <span className='focus-input' data-placeholder='Nome'></span>
                 </div>
@@ -30,7 +54,7 @@ export const Register = () => {
                         className={lastName !== "" ? 'has-val input' : 'input'}
                         type='string'
                         value={lastName}
-                        onChange={e => setLastName(e.target.value)}
+                        onChange={e => setLastName(e.target.value, setErro(''))}
                     />
                     <span className='focus-input' data-placeholder='Sobrenome'></span>
                 </div>
@@ -40,7 +64,7 @@ export const Register = () => {
                         className={email !== "" ? 'has-val input' : 'input'}
                         type='email'
                         value={email}
-                        onChange={e => setEmail(e.target.value)}
+                        onChange={e => setEmail(e.target.value, setErro(''))}
                     />
                     <span className='focus-input' data-placeholder='Email'></span>
                 </div>
@@ -50,13 +74,15 @@ export const Register = () => {
                         className={password !== "" ? 'has-val input' : 'input'}
                         type='password'
                         value={password}
-                        onChange={e => setPassword(e.target.value)}
+                        onChange={e => setPassword(e.target.value, setErro(''))}
                     />
                     <span className='focus-input' data-placeholder='password'></span>
                 </div>
 
+                <div>{erro}</div>
+
                 <div className='container-login-form-btn'>
-                    <button className='login-form-btn'>Registrar</button>
+                    <button className='login-form-btn' onClick={handleSignup }>Registrar</button>
                 </div>
 
                 <div className='text-center'>

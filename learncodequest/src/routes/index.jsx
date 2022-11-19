@@ -3,13 +3,17 @@ import Login from '../pages/Login/login';
 import { Register } from '../pages/Register/register';
 import { Home } from '../pages/Home/home'
 import Navbar from '../components/layoutPages/navbar/navbar';
-import Footer from '../components/layoutPages/footer/footer';
+//import Footer from '../components/layoutPages/footer/footer';
 import Seletor from '../pages/Seletor/seletorDeTarefas';
 import Bootcamp from '../pages/Bootcamp/bootcamp';
 import Desafios from '../pages/Desafio/desafio';
 
 
+
 export const AppRouter = () =>{
+
+  
+
     return(
         <Router>
             <Navbar/>
@@ -21,7 +25,7 @@ export const AppRouter = () =>{
                 <Route path="/bootcamp" exact element={<Bootcamp/>}/>
                 <Route path="/desafio" exact element={<Desafios/>}/>
             </Routes>
-            <Footer/>
+            
         </Router>
     )
 }
