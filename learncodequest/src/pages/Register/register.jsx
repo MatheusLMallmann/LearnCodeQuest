@@ -16,9 +16,10 @@ export const Register = () => {
 
     const handleCreateAccount = (e) => {
         e.preventDefault();
+        console.log('click');
         axios({
             method: 'POST',
-            url: 'http://localhost:80/auth/register',
+            url: 'http://localhost:3000/auth/register',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -36,7 +37,7 @@ export const Register = () => {
             }
 
             const userData = response.data;
-            navigate('/principal', { state: { userData }});
+            navigate('/', { state: { userData }});
         })
         .catch((err) => console.log(err))
     };

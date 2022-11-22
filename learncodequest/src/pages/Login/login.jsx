@@ -2,15 +2,13 @@ import './styles.css';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { LayoutComponents } from '../../components/layoutComponents';
-import axios from "axios";
+import axios from 'axios';
 
 
 export const Login = () => {
 
     const[email, setEmail] = useState("")
-
     const[password, setPassword] = useState("")
-
     const navigate = useNavigate();
 
     const handleLogin = (e) => {
@@ -33,7 +31,7 @@ export const Login = () => {
             }
 
             const userData = response.data;
-            navigate('/principal', { state: { userData }});
+            navigate('/', { state: { userData }});
         })
         .catch((err) => console.log(err));
     };
