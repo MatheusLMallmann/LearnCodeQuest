@@ -2,38 +2,44 @@ import { LayoutComponents } from '../../components/layoutComponents'
 import './styles.css'
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
+import axios from 'axios';
+
 
 export const Register = () => {
 
-    const[email, setEmail] = useState("");
-    const[password, setPassword] = useState("");
-    const[name, setName] = useState("");
-    const[lastName, setLastName] = useState("");
-    const[erro, setErro] = useState("");
+    const[email, setEmail] = useState("")
+    const[password, setPassword] = useState("")
+    const[name, setName] = useState("")
+    const[lastName, setLastName] = useState("")
+
     const navigate = useNavigate();
 
-    const { signup } = useAuth();
+    const handleCreateAccount = (e) => {
+        e.preventDefault();
+        axios({
+            method: 'POST',
+            url: 'http://localhost:80/auth/register',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: {
+                'name': name,
+                'lastname': lastName,
+                'email': email,
+                'password': password
+            }
+        })
+        .then(function (response) {
+            if(response.status !== 200){
+                console.log('error: ', response.data.error);
+                return;
+            }
 
-    const handleSignup  = () => {
-        if(!email | !name | !lastName | !password){
-            setErro('Preencha todos os campos');
-            return;
-        }
-
-        const res = signup(email, password);
-
-        if(res){
-            setErro(res);
-            return;
-        }
-
-        alert('Usuário cadastrado com sucesso');
-        navigate('/');
+            const userData = response.data;
+            navigate('/principal', { state: { userData }});
+        })
+        .catch((err) => console.log(err))
     };
-
-
-
     return(
         <LayoutComponents>
             <form className='login-form'>
@@ -44,7 +50,7 @@ export const Register = () => {
                         className={name !== "" ? 'has-val input' : 'input'}
                         type='string'
                         value={name}
-                        onChange={e => setName(e.target.value, setErro(''))}
+                        onChange={e => setName(e.target.value)}
                     />
                     <span className='focus-input' data-placeholder='Nome'></span>
                 </div>
@@ -54,7 +60,7 @@ export const Register = () => {
                         className={lastName !== "" ? 'has-val input' : 'input'}
                         type='string'
                         value={lastName}
-                        onChange={e => setLastName(e.target.value, setErro(''))}
+                        onChange={e => setLastName(e.target.value)}
                     />
                     <span className='focus-input' data-placeholder='Sobrenome'></span>
                 </div>
@@ -64,7 +70,7 @@ export const Register = () => {
                         className={email !== "" ? 'has-val input' : 'input'}
                         type='email'
                         value={email}
-                        onChange={e => setEmail(e.target.value, setErro(''))}
+                        onChange={e => setEmail(e.target.value)}
                     />
                     <span className='focus-input' data-placeholder='Email'></span>
                 </div>
@@ -74,15 +80,13 @@ export const Register = () => {
                         className={password !== "" ? 'has-val input' : 'input'}
                         type='password'
                         value={password}
-                        onChange={e => setPassword(e.target.value, setErro(''))}
+                        onChange={e => setPassword(e.target.value)}
                     />
                     <span className='focus-input' data-placeholder='password'></span>
                 </div>
 
-                <div>{erro}</div>
-
                 <div className='container-login-form-btn'>
-                    <button className='login-form-btn' onClick={handleSignup }>Registrar</button>
+                    <button className='login-form-btn' onClick={handleCreateAccount}>Registrar</button>
                 </div>
 
                 <div className='text-center'>
@@ -91,7 +95,7 @@ export const Register = () => {
                 </div>
 
                 <div className='text-center' >
-                    <Link className='homePageButton' to='/'>Home Page</Link>
+                    <Link className='homePageButton' to='/'>Voltar</Link>
                 </div>
 
             </form>
