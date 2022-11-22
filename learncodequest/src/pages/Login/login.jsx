@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { LayoutComponents } from '../../components/layoutComponents';
 import axios from 'axios';
-
+import spinnerImg from '../../img/spinner.gif'
 
 export const Login = () => {
 
@@ -11,8 +11,11 @@ export const Login = () => {
     const[password, setPassword] = useState("")
     const navigate = useNavigate();
 
+    const [loading, setLoading] = useState(false);
+
     const handleLogin = (e) => {
         e.preventDefault();
+        setLoading(true);
         axios({
             method: 'GET',
             url: 'http://localhost:80/auth/login',
@@ -25,19 +28,23 @@ export const Login = () => {
             }
         })
         .then(function (response) {
+            setLoading(false);
             if(response.status !== 200){
                 console.log('Status code diferente de 200');
                 return;
             }
-
             const userData = response.data;
             navigate('/', { state: { userData }});
+            
         })
         .catch((err) => console.log(err));
     };
+    
 
     return (
+       
             <LayoutComponents>
+                {loading ? <div><img src={spinnerImg} alt="Loading" style={{ width: 100, display: 'flex', alignItems: 'center', marginLeft: '30%', marginTop: '-20%'}}></img> </div>:
                 <form className='login-form'>
                     <span className='login-form-title'>Welcome!</span>
                     <div className='wrap-input'>
@@ -73,6 +80,7 @@ export const Login = () => {
                     </div>
     
                 </form>
+            }
             </LayoutComponents>
                  
         )

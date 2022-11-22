@@ -3,7 +3,7 @@ import './styles.css'
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import spinnerImg from '../../img/spinner.gif'
 
 export const Register = () => {
 
@@ -11,11 +11,14 @@ export const Register = () => {
     const[password, setPassword] = useState("")
     const[name, setName] = useState("")
     const[lastName, setLastName] = useState("")
+    
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
 
     const handleCreateAccount = (e) => {
         e.preventDefault();
+        setLoading(true);
         console.log('click');
         axios({
             method: 'POST',
@@ -31,6 +34,7 @@ export const Register = () => {
             }
         })
         .then(function (response) {
+            setLoading(false);
             if(response.status !== 200){
                 console.log('error: ', response.data.error);
                 return;
@@ -43,6 +47,7 @@ export const Register = () => {
     };
     return(
         <LayoutComponents>
+            {loading ? <div><img src={spinnerImg} alt="Loading" style={{ width: 100, display: 'flex', alignItems: 'center', marginLeft: '30%', marginTop: '-20%'}}></img> </div>:
             <form className='login-form'>
                 <span className='login-form-title'>Criar Conta</span>
                 
@@ -100,6 +105,7 @@ export const Register = () => {
                 </div>
 
             </form>
+        }
         </LayoutComponents>
     )
 }
