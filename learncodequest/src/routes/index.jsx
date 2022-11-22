@@ -12,7 +12,6 @@ import Desafios from '../pages/Desafio/desafio';
 
 export const AppRouter = () =>{
 
-  
 
     return(
         <Router>

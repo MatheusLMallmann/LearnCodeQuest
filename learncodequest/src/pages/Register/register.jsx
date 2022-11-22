@@ -19,7 +19,7 @@ export const Register = () => {
         console.log('click');
         axios({
             method: 'POST',
-            url: 'http://localhost:3000/auth/register',
+            url: 'http://localhost:80/auth/register',
             headers: {
                 'Content-Type': 'application/json'
             },
