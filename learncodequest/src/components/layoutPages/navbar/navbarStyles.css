@@ -62,4 +62,22 @@
     text-decoration: none;
 }
 
-
+.bttnLogout{
+    padding: 2% 10% 2% 10%;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    width: 100px;
+    height: 35px;
+    background: none;
+    text-decoration: none;
+    color: #48FFD5;
+    margin-left: 55px;
+}
+.img{
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50px 50px 50px 50px;
+}

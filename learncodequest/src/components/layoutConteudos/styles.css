@@ -15,7 +15,7 @@
     justify-content: center;
     margin-left: -40%;
     padding: 15px;
-
+    display:flex;
 }
 
 .wrap-content{
@@ -25,4 +25,15 @@
 
     overflow: hidden;
     padding: 77px 55px 33px 55px;
+}
+
+.menu{
+    display: grid;
+    width: 200px;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    border-style: groove;
+    border: 20px;
+    border-color: #48FFD5;
 }

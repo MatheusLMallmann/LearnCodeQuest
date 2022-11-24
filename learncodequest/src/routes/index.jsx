@@ -4,9 +4,10 @@ import { Register } from '../pages/Register/register';
 import { Home } from '../pages/Home/home'
 import Navbar from '../components/layoutPages/navbar/navbar';
 //import Footer from '../components/layoutPages/footer/footer';
-import Seletor from '../pages/Seletor/seletorDeTarefas';
+import Loja from '../pages/Loja/loja';
 import Bootcamp from '../pages/Bootcamp/bootcamp';
-import Desafios from '../pages/Desafio/desafio';
+import Historico from '../pages/Historico/historico';
+import Logado from '../components/layoutConteudos/layoutLogado'
 
 
 
@@ -20,9 +21,10 @@ export const AppRouter = () =>{
                 <Route path="/" exact element={<Home/>}/>
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path="/register" exact element={<Register/>}/>
-                <Route path="/seletor" exact element={<Seletor/>}/>
+                <Route path="/loja" exact element={<Loja/>}/>
                 <Route path="/bootcamp" exact element={<Bootcamp/>}/>
-                <Route path="/desafio" exact element={<Desafios/>}/>
+                <Route path="/historico" exact element={<Historico/>}/>
+                <Route path="/logado" exact element={<Logado/>}/>
             </Routes>
             
         </Router>

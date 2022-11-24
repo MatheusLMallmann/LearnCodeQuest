@@ -15,10 +15,10 @@ export const Navbar = () => {
         const logged = props.isLoggedIn;
         if(logged){
             tela = 
-                <div> 
-                    <Link className='bttnCriarConta'  to="/"><button onClick={handleLogout}>Logout</button></Link>
-                    <img src={profileImg} alt = "imagemDaPage" />
-                </div> 
+                <div>
+                    <Link to="/"><button onClick={handleLogout} className='bttnLogout'>Logout</button></Link>
+                    <img className= 'img' src={profileImg} alt = "imagemDaPage" />
+                </div>
         }else{
             tela = <div>
                         <Link className='bttnCriarConta'  to="/register">Criar conta</Link>
@@ -28,8 +28,8 @@ export const Navbar = () => {
     }
   
     tela = <div>
-                <Link className='bttnCriarConta'  to="/register">Criar conta</Link>
-                <Link className='bttnRegistrar'  to="/login"><button className="header-entrar">Entrar</button></Link>
+                <Link to="/"><button onClick={handleLogout} className='bttnLogout'>Logout</button></Link>
+                <img className= 'img' src={profileImg} alt = "imagemDaPage" />
             </div>
 
     return (        
