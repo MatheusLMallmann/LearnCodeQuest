@@ -7,9 +7,9 @@ export const LayoutComponents = (props) => {
             <div className='container-content'>
                 
                 <div className='menu'>
-                    <div><Link to="/bootcamp"><button className='bootcampBttn'>Bootcamp</button></Link></div>
-                    <div><Link to="/historico"><button className='histBttn'>Histórico</button></Link></div>
-                    <div><Link to="/loja"><button className='lojaBttn'>Loja</button></Link></div>
+                    <div><Link to="/bootcamp"><button className='bttn'>Bootcamp</button></Link></div>
+                    <div><Link to="/loja"><button className='bttn'>Loja</button></Link></div>
+                    <div><Link to="/historico"><button className='bttn'>Histórico</button></Link></div>
                 </div>
                 
                 <div className='wrap-content'>

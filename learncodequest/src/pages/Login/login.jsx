@@ -34,7 +34,7 @@ export const Login = () => {
                 return;
             }
             const userData = response.data;
-            navigate('/', { state: { userData }});
+            navigate('/logado', { state: { userData }});
             
         })
         .catch((err) => console.log(err));

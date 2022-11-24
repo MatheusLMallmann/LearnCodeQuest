@@ -8,7 +8,7 @@ export const Bootcamp = () => {
 
     return(
         <LayoutLogado>
-           
+            <h1 className='title'>Loja</h1>
         </LayoutLogado>
     )
 

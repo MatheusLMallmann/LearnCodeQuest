@@ -19,21 +19,33 @@
 }
 
 .wrap-content{
-    width: auto;
+    width: 100%;
     background-color: rgb(161, 161, 161);
     border-radius: 10px;
-
+    
+    margin-left: 50px;
     overflow: hidden;
     padding: 77px 55px 33px 55px;
 }
 
 .menu{
     display: grid;
-    width: 200px;
-    height: auto;
+    width: 170px;
+    height: 150px;
     align-items: center;
     justify-content: center;
-    border-style: groove;
-    border: 20px;
-    border-color: #48FFD5;
+    border-right: 2px solid #48FFD5;
+}
+
+.bttn{
+    padding: 2% 10% 2% 10%;
+    background: #31B5FF;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    width: 150px;
+    height: 35px;
+    margin-right: 10px;
 }
