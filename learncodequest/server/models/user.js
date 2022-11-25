@@ -13,7 +13,7 @@ const UserSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true,
+        unique: true, 
         lowercase: true
     },
     password: {
@@ -27,7 +27,11 @@ const UserSchema = new mongoose.Schema({
     },
     learnPoints: {
         type: Number,
-        default: 0
+        default: 15000
+    },
+    keyword: {
+        type: String,
+        required: true
     },
     purchasesHistoric: [
         {
@@ -51,12 +55,12 @@ const UserSchema = new mongoose.Schema({
     },
 });
 
-UserSchema.pre('save', async function(next){
+/*UserSchema.pre('save', async function(next){
     const hash = await bcrypt.hash(this.password, 10);
     this.password = hash;
 
     next();
-});
+});*/
 
 const User = mongoose.model('User', UserSchema);
 
