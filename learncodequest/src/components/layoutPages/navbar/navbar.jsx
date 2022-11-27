@@ -34,7 +34,7 @@ export const Navbar = () => {
 
     return (        
         <nav id="navbar" className="header">  
-                <Link className = "header-font" to= "/">LearnCodeQuest</Link>
+                <Link className = "header-font" to= "/logado">LearnCodeQuest</Link>
                 {tela}
         </nav> 
     );
