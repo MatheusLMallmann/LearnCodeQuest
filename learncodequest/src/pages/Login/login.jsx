@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { LayoutComponents } from '../../components/layoutComponents';
 import axios from 'axios';
-import spinnerImg from '../../img/spinner.gif'
+import spinnerImg from '../../img/spinner.gif';
 
 export const Login = () => {
 

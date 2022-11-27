@@ -34,8 +34,7 @@ router.post('/register', async(request, response) => {
 })
 
 router.get('/login', async(request, response) => {
-    //const {email, password} = request.query;
-    const {email, password} = request.body;
+    const {email, password} = request.query;
 
     console.log(email, password);
     
@@ -65,11 +64,8 @@ router.get('/login', async(request, response) => {
 router.post('/changepassword', async(request, response) => {
     const {email, name, lastname, keyword, password} = request.body;        
 
-    //console.log(request);
-
     try {
         const user = await userModel.findOne({ email })
-        //console.log(user)
         if(
             user.email !== email ||
             user.name !== name ||
@@ -119,4 +115,4 @@ router.post('/shop', async(request, response) => {
     }
 })
 
-module.exports = app => app.use('/auth', router);
+module.exports = app => app.use('/store', router);

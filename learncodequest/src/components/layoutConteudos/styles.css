@@ -20,9 +20,8 @@
 
 .wrap-content{
     width: 100%;
-    background-color: rgb(161, 161, 161);
+    background-color: transparent;
     border-radius: 10px;
-    
     margin-left: 50px;
     overflow: hidden;
     padding: 77px 55px 33px 55px;

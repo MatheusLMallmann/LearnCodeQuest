@@ -21,7 +21,8 @@ app.use(cors());
 app.use(express.json());
 
 require('./controllers/userController')(app);
-//require('./controllers/projectController')(app);
+require('./controllers/projectController')(app);
+require('./controllers/storeController')(app);
 
 app.listen(80, () => {
     console.log('Server is running at port 80');
