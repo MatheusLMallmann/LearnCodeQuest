@@ -35,6 +35,7 @@ router.post('/register', async(request, response) => {
 
 router.get('/login', async(request, response) => {
     const {email, password} = request.query;
+    //const {email, password} = request.body;
 
     console.log(email, password);
     
@@ -92,7 +93,10 @@ router.post('/shop', async(request, response) => {
     try {
         const user = await userModel.findOne({ email })
 
-        if(user.learnPoints < productPrice)
+        if(!user)
+            return response.status(400).send({ error: 'Error to find user in DB'})
+
+        if(user.learnPoints !== null && user.learnPoints < productPrice)
             return response.status(400).send({ error: 'Insufficient balance for purchase'})
 
         const newHistoric = {
@@ -101,7 +105,8 @@ router.post('/shop', async(request, response) => {
             productActivationCode: 'XXX',
             purchaseDate: Date.now()
         }
-        const updateHistoric = [...user.purchasesHistoric, newHistoric]
+        
+        const updateHistoric = [...user.purchasesHistoric, newHistoric]    
 
         userModel.findOneAndUpdate({_id: user._id}, {
             purchasesHistoric: updateHistoric,
@@ -111,8 +116,10 @@ router.post('/shop', async(request, response) => {
             return response.status(200).send({ message: 'Purchase completed', learnPoints: user.learnPoints - productPrice })            
         })
     } catch (error) {
-        return response.status(404).send({ error: 'Unexpected error ocurred. Please try again later'})
+        return response.status(404).send({ 
+            error: 'Unexpected error ocurred. Please try again later',
+            trueError: error})
     }
 })
 
-module.exports = app => app.use('/store', router);
+module.exports = app => app.use('/auth', router);

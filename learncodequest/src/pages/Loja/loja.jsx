@@ -11,6 +11,12 @@ export const Loja = () => {
     const playstation = useRef(false)
     const xbox = useRef(false)
     const pc = useRef(false)
+
+    // CRIAR DUAS VARIÁVEIS PARA RECEBER: 
+    //1) EMAIL DO USUÁRIO (ALTERAR LINHA 88 PARA ENVIAR O EMAIL DO USUÁRIO A API)
+    //2) SALDO DO USUÁRIO (ALTERAR LINHA 138 PARA VALIDAR O SALDO E O PREÇO DO PRODUTO NA TAG DISABLE DO BUTTON)
+    // APÓS ISSO, APAGAR ESSA VARIÁVEL CARTEIRA (L20)
+
     let carteira = 10000
 
     const fetchProducts = useCallback(async () => {
@@ -47,17 +53,14 @@ export const Loja = () => {
             }
 
             if(playstation.current && products.category === 'PLAYSTATION'){
-                console.log('adicionou ps');
                 filtroProdutos = [...filtroProdutos, prod];
             }
 
             if(xbox.current && products.category === 'XBOX'){
-                console.log('adicionou xbox');
                 filtroProdutos = [...filtroProdutos, prod];
             }
 
             if(pc.current && products.category === 'PC'){
-                console.log('adicionou pc');
                 filtroProdutos = [...filtroProdutos, prod];
             }
 
@@ -73,8 +76,31 @@ export const Loja = () => {
         setProducts(filtroProdutos);
     }
 
-    function handleSale(){
-        return null;
+    function handleSale(e){
+        const produto = e.target.value.split(',');
+        console.log(produto);
+        axios({
+            method: 'POST',
+            url: 'http://localhost:80/auth/shop',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: {
+                'email': 'storm@gmail.com.br',
+                'productId': produto[0],
+                'productName': produto[1],
+                'productPrice': Number(produto[2])
+            }
+        })
+        .then(function (response) {
+            if(response.status !== 200){
+                console.log('error: ', response.data.error);
+                return;
+            }
+
+            console.log('response: ' + response.data);
+        })
+        .catch((err) => console.log(err.response.data))
     }
 
     useEffect(() => {
