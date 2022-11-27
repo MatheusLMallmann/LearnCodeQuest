@@ -122,4 +122,26 @@ router.post('/shop', async(request, response) => {
     }
 })
 
+router.post('/givepoints', async(request, response) => {
+    const { email, points } = request.body;
+
+    try {
+        const user = await userModel.findOne({ email })
+
+        if(!user && user.learnPoints !== null)
+            return response.status(400).send({ error: 'Error to find user in DB'})
+
+        userModel.findOneAndUpdate({_id: user._id}, {
+            learnPoints: user.learnPoints + points
+        }, err => {
+            if(err) return response.status(400).send({ error: 'Error to add points to user account. Contact the support!'})
+            return response.status(200).send({ message: 'Points add', learnPoints: user.learnPoints + points })            
+        })
+    } catch (error) {
+        return response.status(404).send({ 
+            error: 'Unexpected error ocurred. Please try again later',
+            trueError: error})
+    }
+})
+
 module.exports = app => app.use('/auth', router);

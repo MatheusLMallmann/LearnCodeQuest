@@ -10,7 +10,6 @@ export const Bootcamp = () => {
             <h1 className='title'>Bootcamp</h1>
         </LayoutLogado>
     )
-
 }
 
 export default Bootcamp;
