@@ -7,13 +7,10 @@ import Navbar from '../components/layoutPages/navbar/navbar';
 import Loja from '../pages/Loja/loja';
 import Bootcamp from '../pages/Bootcamp/bootcamp';
 import Historico from '../pages/Historico/historico';
+import Desafio from '../pages/Desafio/desafio';
 import Logado from '../components/layoutConteudos/layoutLogado'
 
-
-
 export const AppRouter = () =>{
-
-
     return(
         <Router>
             <Navbar/>
@@ -25,6 +22,7 @@ export const AppRouter = () =>{
                 <Route path="/bootcamp" exact element={<Bootcamp/>}/>
                 <Route path="/historico" exact element={<Historico/>}/>
                 <Route path="/logado" exact element={<Logado/>}/>
+                <Route path="/desafio" exact element={<Desafio/>}/>
             </Routes>
             
         </Router>

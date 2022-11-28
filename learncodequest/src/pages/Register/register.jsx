@@ -11,6 +11,7 @@ export const Register = () => {
     const[password, setPassword] = useState("")
     const[name, setName] = useState("")
     const[lastName, setLastName] = useState("")
+    const[keyword, setKeyword] = useState("")
     
     const [loading, setLoading] = useState(false);
 
@@ -22,7 +23,7 @@ export const Register = () => {
         console.log('click');
         axios({
             method: 'POST',
-            url: 'http://localhost:80/auth/register',
+            url: 'https://api-learncodequest.herokuapp.com/auth/register',            
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -30,7 +31,8 @@ export const Register = () => {
                 'name': name,
                 'lastname': lastName,
                 'email': email,
-                'password': password
+                'password': password,
+                'keyword': keyword
             }
         })
         .then(function (response) {

@@ -18,7 +18,7 @@ export const Login = () => {
         setLoading(true);
         axios({
             method: 'GET',
-            url: 'http://localhost:80/auth/login',
+            url: 'https://api-learncodequest.herokuapp.com/auth/login',
             headers: {
                 'Content-Type': 'application/json'
             },

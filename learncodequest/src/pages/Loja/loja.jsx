@@ -20,13 +20,13 @@ export const Loja = () => {
     let carteira = 10000
 
     const fetchProducts = useCallback(async () => {
-        const response = await axios.get('http://localhost:80/store/produtos');
+        const response = await axios.get('https://api-learncodequest.herokuapp.com/store/produtos');
         if (response.status !== 200)
             return json({ error: 'Erro ao carregar carrinho!'});
 
         setProducts(products => [...response.data.produtos]);
         setAllProducts(allProducts => [...response.data.produtos]);
-    }, [setProducts], [allProducts]);
+    }, [setProducts], [setAllProducts]);
 
     function handleInputFiltro(e){
         let input = e.target.name;
