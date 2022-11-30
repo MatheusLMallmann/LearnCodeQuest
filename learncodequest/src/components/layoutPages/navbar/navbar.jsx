@@ -1,6 +1,6 @@
 import './navbarStyles.css';
 import React , {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import profileImg from '../../../img/unknown.png'
 
 export const Navbar = () => {
@@ -9,12 +9,13 @@ export const Navbar = () => {
 
     const handleLogout = (e) => {
         e.preventDefault();
+        useState.logged = false;
+        Navigate('/');
     };
 
     const logged = useState.logged;
-
     
-    if(logged){
+    if(logged === true){
         tela = 
             <div>
                 <Link to="/"><button onClick={handleLogout} className='bttnLogout'>Logout</button></Link>

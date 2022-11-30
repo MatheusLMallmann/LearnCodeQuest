@@ -44,7 +44,7 @@ export const Register = () => {
             }
             setLogged(true);
             const userData = response.data;
-            navigate('/', { state: { userData }});
+            navigate('/logado', { state: { userData }});
         })
         .catch((err) => {console.log(err);setLoading(false);})
     };
@@ -92,6 +92,16 @@ export const Register = () => {
                         onChange={e => setPassword(e.target.value)}
                     />
                     <span className='focus-input' data-placeholder='password'></span>
+                </div>
+
+                <div className='wrap-input'>
+                    <input 
+                        className={keyword !== "" ? 'has-val input' : 'input'}
+                        type='password'
+                        value={keyword}
+                        onChange={e => setKeyword(e.target.value)}
+                    />
+                    <span className='focus-input' data-placeholder='keyword'></span>
                 </div>
 
                 <div className='container-login-form-btn'>
