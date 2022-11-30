@@ -12,6 +12,7 @@ export const Login = () => {
     const navigate = useNavigate();
 
     const [loading, setLoading] = useState(false);
+    const [logged, setLogged] = useState(false);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -28,16 +29,20 @@ export const Login = () => {
             }
         })
         .then(function (response) {
-            setLoading(false);
             if(response.status !== 200){
                 console.log('Status code diferente de 200');
+                setLoading(false);
+            
                 return;
             }
             const userData = response.data;
+            setLogged(true);
+            setLoading(false);
             navigate('/logado', { state: { userData }});
             
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {console.log(err); setLoading(false);});
+        setLoading(false);
     };
     
 

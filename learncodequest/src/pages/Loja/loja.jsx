@@ -109,22 +109,22 @@ export const Loja = () => {
 
     return(
         <LayoutLogado>
-            <h1>LOJA</h1>
+            <h1 className='loja'>LOJA</h1>
             <div className="Store">      
                 <div className="divStore">
                     <div className="divA">
                         <div className="filter">
-                            <p>Filtrar:</p>
-                            <div className="ckb_ps">
-                                <input type="checkbox" className="ck_playstation" name="playstation" value={playstation} onChange={handleInputFiltro}/>
+                            <p className='tit'>Filtrar:</p>
+                            <div className="selectCategory">
+                                <input type="checkbox" className="ckb" name="playstation" value={playstation} onChange={handleInputFiltro}/>
                                 <p>Playstation</p>
                             </div>
-                            <div className="ckb_xbox">
-                                <input type="checkbox" className="ck_xbox" name="xbox" value={xbox} onChange={handleInputFiltro}/>
+                            <div className="selectCategory">
+                                <input type="checkbox" className="ckb" name="xbox" value={xbox} onChange={handleInputFiltro}/>
                                 <p>Xbox</p>
                             </div>
-                            <div className="ckb_pc">
-                                <input type="checkbox" className="ck_pc" name="pc" value={pc} onChange={handleInputFiltro}/>
+                            <div className="selectCategory">
+                                <input type="checkbox" className="ckb" name="pc" value={pc} onChange={handleInputFiltro}/>
                                 <p>PC</p>
                             </div>
                         </div>
@@ -136,7 +136,7 @@ export const Loja = () => {
                                     <p className="produtoName" value={products[key].name}>{products[key].name}</p>
                                     <p className="produtoPrice" value={products[key].price} >{products[key].price}</p>
                                     <p className="produtoCategory" value={products[key].category}>{products[key].category}</p>
-                                    <button onClick={handleSale} value={Object.values(products[key])} disabled={products[key].price > carteira}>Comprar</button>
+                                    <button className="bttnCompra" onClick={handleSale} value={Object.values(products[key])} disabled={products[key].price > carteira}>Comprar</button>
                                 </div>
                             )
                         })}

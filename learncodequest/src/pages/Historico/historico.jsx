@@ -58,7 +58,7 @@ export const Desafio = () => {
                             <div className="prod_grid" id={historic[key].productId} key={key}>
                                 <p className="produtoName" value={historic[key].productName}>{historic[key].productName}</p>
                                 <p className="produtoPrice" value={historic[key].purchaseDate} >{historic[key].purchaseDate}</p>
-                                <button onClick={handleRevealCode} value={Object.values(historic[key])}>Revelar Código</button>
+                                <button className='bttnHist'onClick={handleRevealCode} value={Object.values(historic[key])}>Revelar Código</button>
                             </div>
                         )
                     })}

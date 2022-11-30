@@ -1,6 +1,8 @@
 .container{   
     width: auto;
-    margin: 0 auto; 
+    height: 100%;
+    margin: 0 auto;
+    display: fixed; 
     background: none;
     margin-bottom: 2%;
     margin-left: 30%;
@@ -10,12 +12,13 @@
 
 .container-content{
     width: auto;
-    display: flex;
-    align-items: center;
+    height: 100%;
+    display:flex;
+    align-items: top;
     justify-content: center;
     margin-left: -40%;
     padding: 15px;
-    display:flex;
+        
 }
 
 .wrap-content{
@@ -32,8 +35,9 @@
     width: 170px;
     height: 150px;
     align-items: center;
-    justify-content: center;
+    justify-content: top;
     border-right: 2px solid #48FFD5;
+    margin-top: 100px;
 }
 
 .bttn{

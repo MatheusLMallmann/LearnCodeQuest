@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React , {useState} from 'react';
 import Login from '../pages/Login/login';
 import { Register } from '../pages/Register/register';
 import { Home } from '../pages/Home/home'
@@ -13,7 +14,7 @@ import Logado from '../components/layoutConteudos/layoutLogado'
 export const AppRouter = () =>{
     return(
         <Router>
-            <Navbar/>
+            <Navbar useState={useState.logged}/>
             <Routes>
                 <Route path="/" exact element={<Home/>}/>
                 <Route path="/login" exact element={<Login/>}/>

@@ -28,7 +28,7 @@ export const Desafio = () => {
     const handleCode = () => {
         console.log(code);
 
-        /*axios({
+        axios({
             method: 'POST',
             url: 'http://localhost:80/bootcamp/python/desafio2',
             headers: {
@@ -46,16 +46,16 @@ export const Desafio = () => {
 
             console.log(response.data);
         })
-        .catch((err) => console.log(err))*/
+        .catch((err) => console.log(err))
     }
 
     return(
         <LayoutLogado>
             <div className="challenge">
                 {Object.keys(challenges).map((key) => {
-                    if(key === desafioAtual){
+                    //if(key === desafioAtual){
                         return (
-                            <>
+                            <div>
                                 <h1 className='title'>{challenges[key].titulo}</h1>
                                 <div className='PyCode'>
                                     <div className='Pycode-header'>
@@ -69,13 +69,14 @@ export const Desafio = () => {
                                                 setCode(editor);
                                             }}
                                         />
-                                        <button onClick={handleCode}>Clique aqui</button>
-                                    </div>
+                                        </div>
+                                    <button className='bttnEnviarDesafio'onClick={handleCode}>Enviar desafio</button>
                                 </div>
-                            </>
+                            </div>
                         )
                     }
-                })}
+                //}
+                )}
             </div>
         </LayoutLogado>
     )

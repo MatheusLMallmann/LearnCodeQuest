@@ -15,46 +15,14 @@
     margin-top: 2%;
 }
 
-.linkToBoot{
-    width: 25%;
-    min-height: 20%;
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-    background: rgba(49, 181, 255, 0.15);
-    border: 1px;
-    box-sizing: border-box;
-    font-size: 30px;
-    color: azure;
-    line-height: 1.2;
-    text-align: center;
-    text-decoration: none;
+
+.loja{
+    font-size: 55px;
+    color: #fff;
+    margin-left: 20px;
 }
 
-.imgBoot{
-    display: block;
-    align-items: center;
-    line-height: 1.2;
-}
-
-.bootDesafio{
-    width: 25%;
-    min-height: 20%;
-    display: inline-block;
-    padding: 15px;
-    background: rgba(49, 181, 255, 0.15);
-    border: 1px;
-    box-sizing: border-box;
-    margin-left: 10%;
-    font-size: 30px;
-    color: azure;
-    line-height: 1.2;
-    text-align: center;
-    text-decoration: none;
-}
-
-.AppStore {
+.Store {
   display: table;
   width: 100%;  
 }
@@ -92,15 +60,74 @@
   border-radius: 25px;
 }
 
-.ckb_ps {
+.filter p{
+  margin-left: 5px;
+}
+
+.tit{
+  
+  font-size: 25px;
+  color: #fff ;
+}
+
+.selectCategory {
   display: flex;
   margin-left: 0px;
 }
 
-.ckb_xbox {
-  display: flex;
+
+.ckb {
+  position: relative;
+  height: 25px;
+  width: 25px;
+  background-color: #000;
+  border-radius: 10px;
 }
 
-.ckb_pc {
-  display: flex;
+.prod_grid{
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    background-color: darkgrey;
+    align-items: center;
+    display:inline-block;
+    padding: 0% 1% 5% 1%;
+}
+
+.produtoName{
+  color: #fff;
+  display: block;
+  align-items: center;
+  position: relative;
+  margin-top: 170px;
+}
+
+.produtoPrice{
+  color: #fff;
+  display: block;
+  align-items: center;
+  position: relative;
+}
+
+.produtoCategory{
+  color: #fff;
+  display: block;
+  align-items: center;
+  position: relative;
+  
+}
+
+.bttnCompra{
+  margin-left: 75px;
+  margin-top: 5px;
+  padding: 2% 10% 2% 10%;
+  background: #31B5FF;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  width: 150px;
+  height: 35px;
+  margin-right: 10px;
 }

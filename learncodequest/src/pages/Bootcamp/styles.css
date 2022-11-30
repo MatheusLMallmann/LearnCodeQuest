@@ -1,9 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+     
+}
+
+.divBoot{
+    display: grid;
+    width: 170px;
+    height: 150px;
+    align-items: center;
+    margin-top: 100px;
+}
+
 .title{
     text-align: center;
     margin-bottom: 3%;
     margin-top: -2%;
 }
 
-.content{
-    text-align: center;
+
+
+.bttnDesafio{
+    padding: 2% 10% 2% 10%;
+    background: #31B5FF;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    width: 150px;
+    height: 35px;
+    border: none;
+    align-content: center;
 }

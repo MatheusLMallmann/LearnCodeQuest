@@ -12,7 +12,7 @@ export const Register = () => {
     const[name, setName] = useState("")
     const[lastName, setLastName] = useState("")
     const[keyword, setKeyword] = useState("")
-    
+    const [logged, setLogged] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
@@ -39,13 +39,14 @@ export const Register = () => {
             setLoading(false);
             if(response.status !== 200){
                 console.log('error: ', response.data.error);
+                setLoading(false);
                 return;
             }
-
+            setLogged(true);
             const userData = response.data;
             navigate('/', { state: { userData }});
         })
-        .catch((err) => console.log(err))
+        .catch((err) => {console.log(err);setLoading(false);})
     };
     return(
         <LayoutComponents>

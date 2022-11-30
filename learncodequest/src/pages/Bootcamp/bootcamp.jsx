@@ -14,8 +14,10 @@ export const Bootcamp = () => {
 
     return(
         <LayoutLogado>
-            <h1 className='title'>Bootcamp</h1>
-            <button onClick={handleClick}>DESAFIO</button>
+            <div className='divBoot'>   
+                <h1 className='title'>Bootcamp</h1>
+                <button className="bttnDesafio"onClick={handleClick}>Desafio</button>
+            </div> 
         </LayoutLogado>
     )
 }
