@@ -11,6 +11,7 @@ export const Desafio = () => {
     const [desafioAtual, setDesafioAtual] = useState(1);
     const challenges = useRef([]);
     
+    
     const fetchChallenges = useCallback(async () => {
         const response = await axios.get('https://api-learncodequest.herokuapp.com/bootcamp/retrievechallenges');
         if (response.status !== 200){
@@ -19,6 +20,8 @@ export const Desafio = () => {
         }
     
         challenges.current = response.data.desafios;
+        console.log(JSON.stringify(challenges));
+        
     }, [challenges]);
     
     useEffect(() => {
@@ -52,15 +55,17 @@ export const Desafio = () => {
     return(
         <LayoutLogado>
             <div className="challenge">
-                {Object.keys(challenges).map((key) => {
-                    //if(key === desafioAtual){
+                {Object.keys(challenges.current).map((key) => {
+                //setDesafioAtual(0);
+                   //if(key === desafioAtual){
                         return (
                             <div>
-                                <h1 className='title'>{challenges[key].titulo}</h1>
+                                <h1 className='title'>{challenges.current[key].titulo}</h1>
+                                <p className='descricao'>{challenges.current[key].descricaoDesafio}</p>
                                 <div className='PyCode'>
                                     <div className='Pycode-header'>
                                         <CodeMirror
-                                            value={challenges[key].initialCode}
+                                            value={challenges.current[key].initialCode}
                                             height='5rem'
                                             width='60rem'                    
                                             extensions={[python()]}
@@ -74,8 +79,8 @@ export const Desafio = () => {
                                 </div>
                             </div>
                         )
-                    }
-                //}
+                    //}
+                }
                 )}
             </div>
         </LayoutLogado>
