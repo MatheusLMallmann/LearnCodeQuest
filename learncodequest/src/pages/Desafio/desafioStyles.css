@@ -18,5 +18,12 @@
 }
 
 .descricao{
-    
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.title{
+    margin-top: 5px;
 }

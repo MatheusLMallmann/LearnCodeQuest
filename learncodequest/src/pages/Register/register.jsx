@@ -23,7 +23,7 @@ export const Register = () => {
         console.log('click');
         axios({
             method: 'POST',
-            url: 'https://api-learncodequest.herokuapp.com/auth/register',            
+            url: 'https://api-learncodequest.onrender.com/auth/register',            
             headers: {
                 'Content-Type': 'application/json'
             },

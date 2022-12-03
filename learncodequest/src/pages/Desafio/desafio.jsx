@@ -13,7 +13,7 @@ export const Desafio = () => {
     
     
     const fetchChallenges = useCallback(async () => {
-        const response = await axios.get('https://api-learncodequest.herokuapp.com/bootcamp/retrievechallenges');
+        const response = await axios.get('https://api-learncodequest.onrender.com/bootcamp/retrievechallenges');
         if (response.status !== 200){
             console.log('error: ', response.error);
             return;
