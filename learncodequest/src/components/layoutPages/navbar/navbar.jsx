@@ -6,6 +6,7 @@ import profileImg from '../../../img/unknown.png'
 export const Navbar = () => {
 
     var tela
+    const data = localStorage.getItem("dadosUser");
 
     const handleLogout = (e) => {
         e.preventDefault();
@@ -13,7 +14,7 @@ export const Navbar = () => {
         Navigate('/');
     };
 
-    const logged = useState.logged;
+    const logged = data;
     
     if(logged === true){
         tela = 

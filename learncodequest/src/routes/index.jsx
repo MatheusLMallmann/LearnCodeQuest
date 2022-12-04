@@ -13,19 +13,20 @@ import Logado from '../components/layoutConteudos/layoutLogado'
 
 export const AppRouter = () =>{
     return(
-        <Router>
-            <Navbar useState={useState.logged}/>
-            <Routes>
-                <Route path="/" exact element={<Home/>}/>
-                <Route path="/login" exact element={<Login/>}/>
-                <Route path="/register" exact element={<Register/>}/>
-                <Route path="/loja" exact element={<Loja/>}/>
-                <Route path="/bootcamp" exact element={<Bootcamp/>}/>
-                <Route path="/historico" exact element={<Historico/>}/>
-                <Route path="/logado" exact element={<Logado/>}/>
-                <Route path="/desafio" exact element={<Desafio/>}/>
-            </Routes>
-            
-        </Router>
+      
+            <Router>
+                <Navbar />
+                <Routes>
+                    <Route path="/" exact element={<Home/>}/>
+                    <Route path="/login" exact element={<Login/>}/>
+                    <Route path="/register" exact element={<Register/>}/>
+                    <Route path="/loja" exact element={<Loja/>}/>
+                    <Route path="/bootcamp" exact element={<Bootcamp/>}/>
+                    <Route path="/historico" exact element={<Historico/>}/>
+                    <Route path="/logado" exact element={<Logado/>}/>
+                    <Route path="/desafio" exact element={<Desafio/>}/>
+                </Routes>
+            </Router>
+      
     )
 }

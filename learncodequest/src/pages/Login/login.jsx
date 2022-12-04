@@ -5,7 +5,10 @@ import { LayoutComponents } from '../../components/layoutComponents';
 import axios from 'axios';
 import spinnerImg from '../../img/spinner.gif';
 
+
 export const Login = () => {
+
+   
 
     const[email, setEmail] = useState("")
     const[password, setPassword] = useState("")
@@ -35,10 +38,11 @@ export const Login = () => {
             
                 return;
             }
-            const userData = response.data;
-            setLogged(true);
+
+            console.log(response);
+            localStorage.setItem("dadosUser", response.dados.user);
             setLoading(false);
-            navigate('/logado', { state: { userData }});
+            navigate('/logado');
             
         })
         .catch((err) => {console.log(err); setLoading(false);});
