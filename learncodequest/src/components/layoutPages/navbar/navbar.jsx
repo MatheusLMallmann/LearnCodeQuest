@@ -1,25 +1,26 @@
 import './navbarStyles.css';
-import React , {useState} from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import profileImg from '../../../img/unknown.png'
 
 export const Navbar = () => {
 
-    var tela
-    const data = localStorage.getItem("dadosUser");
+    var tela;
+    const navigate = useNavigate();
 
     const handleLogout = (e) => {
         e.preventDefault();
-        useState.logged = false;
-        Navigate('/');
+        localStorage.clear();
+        navigate('/');
     };
 
-    const logged = data;
+    const data = localStorage.getItem("dadosUser");
+    console.log(data);
     
-    if(logged === true){
+    if(data !== null){
         tela = 
             <div>
-                <Link to="/"><button onClick={handleLogout} className='bttnLogout'>Logout</button></Link>
+                <button onClick={handleLogout} className='bttnLogout'>Logout</button>
                 <img className= 'img' src={profileImg} alt = "imagemDaPage" />
             </div>
     }else{

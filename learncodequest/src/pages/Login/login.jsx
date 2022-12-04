@@ -15,7 +15,6 @@ export const Login = () => {
     const navigate = useNavigate();
 
     const [loading, setLoading] = useState(false);
-    const [logged, setLogged] = useState(false);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -39,13 +38,14 @@ export const Login = () => {
                 return;
             }
 
-            console.log(response);
-            localStorage.setItem("dadosUser", response.dados.user);
-            setLoading(false);
+            console.log(JSON.stringify(response));
+            localStorage.setItem("dadosUser", JSON.stringify(response));            
             navigate('/logado');
+            setLoading(false);
+            
             
         })
-        .catch((err) => {console.log(err); setLoading(false);});
+        .catch((err) => {console.log(err); setLoading(false); });
         setLoading(false);
     };
     
