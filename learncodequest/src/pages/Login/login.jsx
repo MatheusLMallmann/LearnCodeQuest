@@ -22,7 +22,7 @@ export const Login = () => {
         setLoading(true);
         axios({
             method: 'GET',
-            url: 'https://api-learncodequest.onrender.com/auth/login',
+            url: 'https://api-learncodequest.herokuapp.com/auth/login',
             headers: {
                 'Content-Type': 'application/json'
             },
