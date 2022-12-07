@@ -15,7 +15,7 @@ export const Navbar = () => {
     };
 
     const data = localStorage.getItem("dadosUser");
-    console.log(data);
+  
     
     if(data !== null){
         tela = 

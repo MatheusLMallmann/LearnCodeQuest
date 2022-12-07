@@ -5,12 +5,13 @@ import CodeMirror from '@uiw/react-codemirror';
 import { sublime } from '@uiw/codemirror-theme-sublime';
 import { python } from '@codemirror/lang-python';
 import axios from "axios";
+import spinnerImg from '../../img/spinner.gif';
 
 export const Desafio = () => {
     const [code, setCode] = useState("def add(a,b):\n return a");
     const [desafioAtual, setDesafioAtual] = useState(1);
     const challenges = useRef([]);
-    
+    const [loading, setLoading] = useState(false);
     
     const fetchChallenges = useCallback(async () => {
         const response = await axios.get('https://api-learncodequest.herokuapp.com/bootcamp/retrievechallenges');
@@ -18,16 +19,25 @@ export const Desafio = () => {
             console.log('error: ', response.error);
             return;
         }
-    
-        challenges.current.data = response.data.desafios;
-        console.log(JSON.stringify(challenges));
+        if(response != null){
+            challenges.current = response.data.desafios;
+            console.log(JSON.stringify(challenges));
+        }else{
+            challenges.current = ' '; 
+        }
         
     }, [challenges]);
     
     useEffect(() => {
+        setLoading(true);
         fetchChallenges();
+        const timer = setTimeout(() => {
+            setLoading(false);
+          }, 1000);
+          return () => clearTimeout(timer);
     }, [fetchChallenges]);
 
+   
     const handleCode = () => {
         console.log(code);
 
@@ -54,6 +64,7 @@ export const Desafio = () => {
 
     return(
         <LayoutLogado>
+            {loading ? <div><img src={spinnerImg} alt="Loading" style={{ width: 100, display: 'flex', alignItems: 'center', marginLeft: '30%', marginTop: '-20%'}}></img> </div>:
             <div className="challenge">
                 {Object.keys(challenges.current).map((key) => {
                 //setDesafioAtual(0);
@@ -83,6 +94,7 @@ export const Desafio = () => {
                 }
                 )}
             </div>
+}
         </LayoutLogado>
     )
 }
