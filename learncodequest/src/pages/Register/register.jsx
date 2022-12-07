@@ -44,6 +44,7 @@ export const Register = () => {
             }
             setLogged(true);
             const userData = response.data;
+            localStorage.setItem("dadosUser", JSON.stringify(response));
             navigate('/logado', { state: { userData }});
         })
         .catch((err) => {console.log(err);setLoading(false);})
