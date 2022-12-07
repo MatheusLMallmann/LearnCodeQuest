@@ -19,7 +19,7 @@ export const Desafio = () => {
             return;
         }
     
-        challenges.current = response.data.desafios;
+        challenges.current.data = response.data.desafios;
         console.log(JSON.stringify(challenges));
         
     }, [challenges]);
